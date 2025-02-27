@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="exercise_app.Views.ListView"
+             
+             xmlns:model="clr-namespace:exercise_app.Models"
+             xmlns:components="clr-namespace:exercise_app.Views.Components"
+             xmlns:controls="clr-namespace:exercise_app.Views.Controls"
+             xmlns:lang="clr-namespace:exercise_app.Resources.Languages"
+             
+             xmlns:vm="clr-namespace:exercise_app.ViewModels"
+             x:DataType="vm:ListViewModel"
+             
+             Title="{x:Static lang:AppResources.view_main_title}">
+
+
+    <Grid ColumnSpacing="20" RowSpacing="20" Padding="22" ColumnDefinitions="*" RowDefinitions="*, Auto">
+        <RefreshView Grid.Row="0" Command="{Binding GetExerciseListCommand}" IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView ItemsSource="{Binding ExerciseList}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Exercise">
+                        <components:ExerciseTile />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <VerticalStackLayout Grid.Row="1" Margin="5" Padding="3">
+            <Grid ColumnSpacing="1" RowSpacing="1" Padding="3" ColumnDefinitions="*">
+                <controls:BasicButton Text="Blutdruckwert hinzufügen" Grid.Column="0" Command="{Binding NavigateToInputPageCommand}" IsEnabled="{Binding IsNotBusy}"/>
+            </Grid>
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>
