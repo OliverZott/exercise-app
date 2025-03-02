@@ -120,7 +120,13 @@
   <data name="app_title" xml:space="preserve">
     <value>Exercise App</value>
   </data>
-  <data name="view_main_title" xml:space="preserve">
+  <data name="view_input_title" xml:space="preserve">
+    <value>Add Exercise</value>
+  </data>
+  <data name="view_list_add_button" xml:space="preserve">
+    <value>Add Exercise</value>
+  </data>
+  <data name="view_list_title" xml:space="preserve">
     <value>Exercise Overview</value>
   </data>
 </root>

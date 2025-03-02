@@ -120,7 +120,13 @@
   <data name="app_title" xml:space="preserve">
     <value>Trainings App</value>
   </data>
-  <data name="view_main_title" xml:space="preserve">
+  <data name="view_input_title" xml:space="preserve">
+    <value>Training Hinzufügen</value>
+  </data>
+  <data name="view_list_add_button" xml:space="preserve">
+    <value>Training hinzufügen</value>
+  </data>
+  <data name="view_list_title" xml:space="preserve">
     <value>Trainings Übersicht</value>
   </data>
 </root>

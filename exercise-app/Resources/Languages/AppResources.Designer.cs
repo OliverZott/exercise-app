@@ -70,11 +70,29 @@ namespace exercise_app.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Training Hinzufügen.
+        /// </summary>
+        internal static string view_input_title {
+            get {
+                return ResourceManager.GetString("view_input_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Training hinzufügen.
+        /// </summary>
+        internal static string view_list_add_button {
+            get {
+                return ResourceManager.GetString("view_list_add_button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trainings Übersicht.
         /// </summary>
-        internal static string view_main_title {
+        internal static string view_list_title {
             get {
-                return ResourceManager.GetString("view_main_title", resourceCulture);
+                return ResourceManager.GetString("view_list_title", resourceCulture);
             }
         }
     }
