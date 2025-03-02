@@ -11,7 +11,7 @@
              xmlns:vm="clr-namespace:exercise_app.ViewModels"
              x:DataType="vm:ListViewModel"
              
-             Title="{x:Static lang:AppResources.view_main_title}">
+             Title="{x:Static lang:AppResources.view_list_title}">
 
 
     <Grid ColumnSpacing="20" RowSpacing="20" Padding="22" ColumnDefinitions="*" RowDefinitions="*, Auto">
@@ -19,7 +19,21 @@
             <CollectionView ItemsSource="{Binding ExerciseList}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Exercise">
-                        <components:ExerciseTile />
+                        <!--<components:ExerciseTile />-->
+                        <Border HeightRequest="70" Margin="2,10">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ListViewModel}}, Path=NavigateToExerciseDetailViewCommand}" 
+                                                      CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
+                            <Grid Padding="20" ColumnDefinitions="*">
+                                <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                    <Label Text="{Binding DateTime, StringFormat='{0:dd/MM/yyyy} - '}" FontSize="Medium" />
+                                    <Label Text="{Binding Systolic}" FontSize="Medium" />
+                                    <Label Text=" / " FontSize="Medium" />
+                                    <Label Text="{Binding Diastolic}" FontSize="Medium"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -27,7 +41,7 @@
 
         <VerticalStackLayout Grid.Row="1" Margin="5" Padding="3">
             <Grid ColumnSpacing="1" RowSpacing="1" Padding="3" ColumnDefinitions="*">
-                <controls:BasicButton Text="Blutdruckwert hinzufügen" Grid.Column="0" Command="{Binding NavigateToInputPageCommand}" IsEnabled="{Binding IsNotBusy}"/>
+                <controls:BasicButton Text="{x:Static lang:AppResources.view_list_add_button}" Grid.Column="0" Command="{Binding NavigateToInputViewCommand}" IsEnabled="{Binding IsNotBusy}"/>
             </Grid>
         </VerticalStackLayout>
 

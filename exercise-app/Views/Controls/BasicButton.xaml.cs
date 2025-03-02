@@ -1,4 +1,4 @@
-namespace StudienAppDemo.Views.Controls;
+namespace exercise_app.Views.Controls;
 
 public partial class BasicButton
 {

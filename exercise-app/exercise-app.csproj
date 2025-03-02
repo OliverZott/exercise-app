@@ -83,6 +83,9 @@
 	  <MauiXaml Update="Views\Controls\BasicButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ExerciseInputView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ListView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
