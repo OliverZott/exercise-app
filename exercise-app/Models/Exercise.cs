@@ -10,6 +10,13 @@ public class Exercise : BaseEntity
     public int? Systolic { get; set; }
     public int? HeartRate { get; set; }
     public int? Weight { get; set; }
-    public ExerciseType ExerciseType { get; set; }
     public string? Notes { get; set; }
+    public string? ExerciseType { get; set; }
+
+    // Foreign key for ExerciseType
+    //public int ExerciseTypeId { get; set; }
+
+    // NOT WORKING in SQLite !!!
+    //[ForeignKey("ExerciseTypeId")]
+    //public ExerciseType ExerciseType { get; set; }
 }
