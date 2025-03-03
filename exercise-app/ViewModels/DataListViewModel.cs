@@ -18,7 +18,7 @@ public partial class DataListViewModel : BaseViewModel
 
     public ObservableCollection<Vitals> VitalsList { get; private set; } = [];
 
-    public IList<DataObject> DataObjects { get; private set; } = [];  // Observable for view????
+    public ObservableCollection<DataObject> DataObjects { get; private set; } = [];
 
 
     public DataListViewModel(ExerciseService exerciseService, VitalsService vitalsService)

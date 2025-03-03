@@ -4,7 +4,7 @@
              
              x:Class="exercise_app.Views.DataDetailView"
              
-             Title="ExerciseDetailView">
+             Title="DataDetailView">
     
     <VerticalStackLayout>
         <Label 

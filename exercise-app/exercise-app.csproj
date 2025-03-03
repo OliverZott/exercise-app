@@ -64,6 +64,9 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>AppResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\Components\DataObjectTile.xaml.cs">
+	    <DependentUpon>DataObjectTile.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\DataListView.xaml.cs">
 	    <DependentUpon>DataListView.xaml</DependentUpon>
 	  </Compile>
@@ -83,7 +86,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\Components\ExerciseTile.xaml">
+	  <MauiXaml Update="Views\Components\DataObjectTile.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Controls\BasicButton.xaml">

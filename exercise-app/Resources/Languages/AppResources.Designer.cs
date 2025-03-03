@@ -70,6 +70,24 @@ namespace exercise_app.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zurück.
+        /// </summary>
+        internal static string button_back {
+            get {
+                return ResourceManager.GetString("button_back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speichern.
+        /// </summary>
+        internal static string button_save {
+            get {
+                return ResourceManager.GetString("button_save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Datum.
         /// </summary>
         internal static string date {

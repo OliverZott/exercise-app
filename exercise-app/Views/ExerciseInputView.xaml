@@ -95,8 +95,8 @@
 
 
             <Grid ColumnSpacing="1" RowSpacing="1" Padding="3" ColumnDefinitions="*,*">
-                <controls:BasicButton Text="Speichern" Grid.Column="0" Command="{Binding SaveOrEditBloodPressureCommand}" IsEnabled="{Binding IsNotBusy}"/>
-                <controls:BasicButton Text="Zurück" Grid.Column="1" Command="{Binding NavigateBackCommand}" IsEnabled="{Binding IsNotBusy}"/>
+                <controls:BasicButton Text="{x:Static lang:AppResources.button_save}" Grid.Column="0" Command="{Binding SaveOrEditExerciseCommand}" IsEnabled="{Binding IsNotBusy}"/>
+                <controls:BasicButton Text="{x:Static lang:AppResources.button_back}" Grid.Column="1" Command="{Binding NavigateBackCommand}" IsEnabled="{Binding IsNotBusy}"/>
             </Grid>
         </VerticalStackLayout>
     </Grid>

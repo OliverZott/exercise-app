@@ -120,6 +120,12 @@
   <data name="app_title" xml:space="preserve">
     <value>Trainings App</value>
   </data>
+  <data name="button_back" xml:space="preserve">
+    <value>Zurück</value>
+  </data>
+  <data name="button_save" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
   <data name="date" xml:space="preserve">
     <value>Datum</value>
   </data>
