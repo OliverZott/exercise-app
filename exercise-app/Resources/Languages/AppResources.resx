@@ -120,13 +120,43 @@
   <data name="app_title" xml:space="preserve">
     <value>Trainings App</value>
   </data>
-  <data name="view_input_title" xml:space="preserve">
+  <data name="date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="diastolic" xml:space="preserve">
+    <value>Diastolisch</value>
+  </data>
+  <data name="duration" xml:space="preserve">
+    <value>Trainigsdauer</value>
+  </data>
+  <data name="exerciseType" xml:space="preserve">
+    <value>Sportart</value>
+  </data>
+  <data name="heartrate" xml:space="preserve">
+    <value>Herzfrequenz</value>
+  </data>
+  <data name="notes" xml:space="preserve">
+    <value>Notizen</value>
+  </data>
+  <data name="systolic" xml:space="preserve">
+    <value>Systolisch</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>Uhrzeit</value>
+  </data>
+  <data name="view_exercise_input_title" xml:space="preserve">
     <value>Training Hinzufügen</value>
   </data>
   <data name="view_list_add_button" xml:space="preserve">
-    <value>Training hinzufügen</value>
+    <value>Hinzufügen</value>
   </data>
   <data name="view_list_title" xml:space="preserve">
     <value>Trainings Übersicht</value>
+  </data>
+  <data name="view_vitals_input_title" xml:space="preserve">
+    <value>Vitalwerte hinzufügen</value>
+  </data>
+  <data name="weight" xml:space="preserve">
+    <value>Gewicht</value>
   </data>
 </root>

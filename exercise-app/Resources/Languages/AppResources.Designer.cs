@@ -70,16 +70,88 @@ namespace exercise_app.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Training Hinzufügen.
+        ///   Looks up a localized string similar to Datum.
         /// </summary>
-        internal static string view_input_title {
+        internal static string date {
             get {
-                return ResourceManager.GetString("view_input_title", resourceCulture);
+                return ResourceManager.GetString("date", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Training hinzufügen.
+        ///   Looks up a localized string similar to Diastolisch.
+        /// </summary>
+        internal static string diastolic {
+            get {
+                return ResourceManager.GetString("diastolic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trainigsdauer.
+        /// </summary>
+        internal static string duration {
+            get {
+                return ResourceManager.GetString("duration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sportart.
+        /// </summary>
+        internal static string exerciseType {
+            get {
+                return ResourceManager.GetString("exerciseType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Herzfrequenz.
+        /// </summary>
+        internal static string heartrate {
+            get {
+                return ResourceManager.GetString("heartrate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notizen.
+        /// </summary>
+        internal static string notes {
+            get {
+                return ResourceManager.GetString("notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Systolisch.
+        /// </summary>
+        internal static string systolic {
+            get {
+                return ResourceManager.GetString("systolic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uhrzeit.
+        /// </summary>
+        internal static string time {
+            get {
+                return ResourceManager.GetString("time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Training Hinzufügen.
+        /// </summary>
+        internal static string view_exercise_input_title {
+            get {
+                return ResourceManager.GetString("view_exercise_input_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hinzufügen.
         /// </summary>
         internal static string view_list_add_button {
             get {
@@ -93,6 +165,24 @@ namespace exercise_app.Resources.Languages {
         internal static string view_list_title {
             get {
                 return ResourceManager.GetString("view_list_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vitalwerte hinzufügen.
+        /// </summary>
+        internal static string view_vitals_input_title {
+            get {
+                return ResourceManager.GetString("view_vitals_input_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gewicht.
+        /// </summary>
+        internal static string weight {
+            get {
+                return ResourceManager.GetString("weight", resourceCulture);
             }
         }
     }

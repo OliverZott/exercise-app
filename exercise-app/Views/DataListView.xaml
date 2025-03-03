@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="exercise_app.Views.ListView"
+             x:Class="exercise_app.Views.DataListView"
              
              xmlns:model="clr-namespace:exercise_app.Models"
              xmlns:components="clr-namespace:exercise_app.Views.Components"
@@ -9,25 +9,24 @@
              xmlns:lang="clr-namespace:exercise_app.Resources.Languages"
              
              xmlns:vm="clr-namespace:exercise_app.ViewModels"
-             x:DataType="vm:ListViewModel"
-             
+             x:DataType="vm:DataListViewModel"
              Title="{x:Static lang:AppResources.view_list_title}">
 
 
-    <Grid ColumnSpacing="20" RowSpacing="20" Padding="22" ColumnDefinitions="*" RowDefinitions="*, Auto">
-        <RefreshView Grid.Row="0" Command="{Binding GetExerciseListCommand}" IsRefreshing="{Binding IsRefreshing}">
-            <CollectionView ItemsSource="{Binding ExerciseList}" SelectionMode="None">
+    <Grid ColumnSpacing="20" RowSpacing="20" Padding="22" ColumnDefinitions="*" RowDefinitions="*, Auto, Auto">
+        <RefreshView Grid.Row="0" Command="{Binding GetDataListCommand}" IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView ItemsSource="{Binding DataObjects}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Exercise">
+                    <DataTemplate x:DataType="model:DataObject">
                         <!--<components:ExerciseTile />-->
                         <Border HeightRequest="70" Margin="2,10">
                             <Border.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ListViewModel}}, Path=NavigateToExerciseDetailViewCommand}" 
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DataListViewModel}}, Path=NavigateToDataDetailViewCommand}" 
                                                       CommandParameter="{Binding .}"/>
                             </Border.GestureRecognizers>
                             <Grid Padding="20" ColumnDefinitions="*">
                                 <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                                    <Label Text="{Binding DateTime, StringFormat='{0:dd/MM/yyyy} - '}" FontSize="Medium" />
+                                    <Label Text="{Binding Exercises, StringFormat='{0:dd/MM/yyyy} - '}" FontSize="Medium" />
                                     <Label Text="{Binding Systolic}" FontSize="Medium" />
                                     <Label Text=" / " FontSize="Medium" />
                                     <Label Text="{Binding Diastolic}" FontSize="Medium"/>
@@ -41,7 +40,12 @@
 
         <VerticalStackLayout Grid.Row="1" Margin="5" Padding="3">
             <Grid ColumnSpacing="1" RowSpacing="1" Padding="3" ColumnDefinitions="*">
-                <controls:BasicButton Text="{x:Static lang:AppResources.view_list_add_button}" Grid.Column="0" Command="{Binding NavigateToInputViewCommand}" IsEnabled="{Binding IsNotBusy}"/>
+                <controls:BasicButton Text="{x:Static lang:AppResources.view_list_add_button}" Grid.Column="0" Command="{Binding NavigateToExerciseInputViewCommand}" IsEnabled="{Binding IsNotBusy}"/>
+            </Grid>
+        </VerticalStackLayout>
+        <VerticalStackLayout Grid.Row="2" Margin="5" Padding="3">
+            <Grid ColumnSpacing="1" RowSpacing="1" Padding="3" ColumnDefinitions="*">
+                <controls:BasicButton Text="{x:Static lang:AppResources.view_list_add_button}" Grid.Column="0" Command="{Binding NavigateToVitalsInputViewCommand}" IsEnabled="{Binding IsNotBusy}"/>
             </Grid>
         </VerticalStackLayout>
 

@@ -120,13 +120,43 @@
   <data name="app_title" xml:space="preserve">
     <value>Exercise App</value>
   </data>
-  <data name="view_input_title" xml:space="preserve">
+  <data name="date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="diastolic" xml:space="preserve">
+    <value>Diastolic</value>
+  </data>
+  <data name="duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="exerciseType" xml:space="preserve">
+    <value>Sports Type</value>
+  </data>
+  <data name="heartrate" xml:space="preserve">
+    <value>Heart Rate</value>
+  </data>
+  <data name="notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="systolic" xml:space="preserve">
+    <value>Systolic</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="view_exercise_input_title" xml:space="preserve">
     <value>Add Exercise</value>
   </data>
   <data name="view_list_add_button" xml:space="preserve">
-    <value>Add Exercise</value>
+    <value>Add</value>
   </data>
   <data name="view_list_title" xml:space="preserve">
     <value>Exercise Overview</value>
+  </data>
+  <data name="view_vitals_input_title" xml:space="preserve">
+    <value>Add Vitals</value>
+  </data>
+  <data name="weight" xml:space="preserve">
+    <value>Weight</value>
   </data>
 </root>

@@ -3,15 +3,14 @@ using SQLite;
 
 namespace exercise_app.Services;
 
-public class DatabaseService
+public class ExerciseService
 {
-
     private SQLiteConnection connection;
     private string dbPath;
 
     public string StatusMessage { get; set; }
 
-    public DatabaseService(string dbPath)
+    public ExerciseService(string dbPath)
     {
         this.dbPath = dbPath;
         InitializeDatabase();
@@ -20,9 +19,7 @@ public class DatabaseService
     private void InitializeDatabase()
     {
         connection = new SQLiteConnection(dbPath);
-        // Create the tables if they do not exist
         connection.CreateTable<Exercise>();
-        connection.CreateTable<ExerciseType>();
     }
 
     public List<Exercise> GetExercises()
@@ -65,8 +62,35 @@ public class DatabaseService
         }
     }
 
-    public void UpdateBloodPressure(Exercise selectedExercise)
+    public void UpdateExercise(Exercise exercise)
     {
-        throw new NotImplementedException();
+        try
+        {
+            connection.Update(exercise);
+            StatusMessage = "Exercise updated";
+        }
+        catch (Exception e)
+        {
+            StatusMessage = $"Failed to update exercise on {exercise.DateTime}";
+            throw;
+        }
+    }
+
+    public void DeleteExercise(int id)
+    {
+        try
+        {
+            var exercise = GetExercise(id);
+            if (exercise != null)
+            {
+                connection.Delete(exercise);
+                StatusMessage = "Exercise deleted";
+            }
+        }
+        catch (Exception e)
+        {
+            StatusMessage = "Failed to delete exercise";
+            throw;
+        }
     }
 }

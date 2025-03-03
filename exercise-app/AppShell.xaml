@@ -21,7 +21,7 @@
 
 <ShellContent
         Title="{x:Static lang:AppResources.view_list_title}"
-        ContentTemplate="{DataTemplate views:ListView}"
+        ContentTemplate="{DataTemplate views:DataListView}"
         Route="MainPage" />
 
 </Shell>

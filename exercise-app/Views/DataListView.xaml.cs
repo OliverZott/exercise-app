@@ -2,11 +2,11 @@ using exercise_app.ViewModels;
 
 namespace exercise_app.Views;
 
-public partial class ListView : ContentPage
+public partial class DataListView : ContentPage
 {
-    private readonly ListViewModel _listViewModel;
+    private readonly DataListViewModel _listViewModel;
 
-    public ListView(ListViewModel listViewModel)
+    public DataListView(DataListViewModel listViewModel)
     {
         InitializeComponent();
         BindingContext = listViewModel;
@@ -16,6 +16,6 @@ public partial class ListView : ContentPage
     protected async override void OnAppearing()
     {
         base.OnAppearing();
-        await _listViewModel.GetExerciseList();
+        await _listViewModel.GetDataList();
     }
 }

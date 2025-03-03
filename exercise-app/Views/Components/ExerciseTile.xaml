@@ -9,7 +9,7 @@
 
     <Border HeightRequest="70" Margin="2,10">
         <Border.GestureRecognizers>
-            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ListViewModel}}, Path=NavigateToExerciseDetailViewCommand}" 
+            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DataListViewModel}}, Path=NavigateToExerciseDetailViewCommand}" 
                                   CommandParameter="{Binding .}"/>
         </Border.GestureRecognizers>
         <Grid Padding="20" ColumnDefinitions="*">

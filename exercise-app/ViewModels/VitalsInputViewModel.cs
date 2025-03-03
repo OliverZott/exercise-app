@@ -2,37 +2,46 @@
 using CommunityToolkit.Mvvm.Input;
 using exercise_app.Models;
 using exercise_app.Services;
+using System.ComponentModel.DataAnnotations;
 
 namespace exercise_app.ViewModels;
 
-public partial class ExerciseInputViewModel : BaseViewModel
+public partial class VitalsInputViewModel : BaseViewModel
 {
-    private readonly ExerciseService _exerciseService;
+    private readonly VitalsService _vitalsService;
 
     [ObservableProperty]
-    public TimeSpan duration;
+    [Required(ErrorMessage = "Systolic value is required")]
+    [Range(50, 250, ErrorMessage = "Systolic value must be between 50 and 250")]
+    public int? systolic;
 
     [ObservableProperty]
-    public string? notes;
+    [Required(ErrorMessage = "Diastolic value is required")]
+    [Range(50, 150, ErrorMessage = "Diastolic value must be between 50 and 150")]
+    public int? diastolic;
 
     [ObservableProperty]
-    public ExerciseType selectedExerciseType;
+    [Required(ErrorMessage = "Heart rate value is required")]
+    [Range(30, 230, ErrorMessage = "Heart rate must be between 30 and 230")]
+    public int? heartRate;
 
-    public List<ExerciseType> ExerciseTypes { get; } = Enum.GetValues<ExerciseType>().Cast<ExerciseType>().ToList();
-
-
-    [ObservableProperty] Exercise selectedExercise;
+    [ObservableProperty]
+    [Required(ErrorMessage = "Weight rate value is required")]
+    [Range(50, 150, ErrorMessage = "Weight rate must be between 50 and 150")]
+    public int? weight;
 
     [ObservableProperty] public DateTime selectedDate;
     [ObservableProperty] public TimeSpan selectedTime;
     [ObservableProperty] public bool isRefreshing;
 
+    [ObservableProperty] Vitals? selectedVitals;
+
     private bool inEditMode = false;
 
 
-    public ExerciseInputViewModel(ExerciseService exerciseService)
+    public VitalsInputViewModel(VitalsService vitalsService)
     {
-        _exerciseService = exerciseService;
+        _vitalsService = vitalsService;
         SelectedDate = DateTime.Today;
         SelectedTime = DateTime.Now.TimeOfDay;
     }
@@ -40,36 +49,40 @@ public partial class ExerciseInputViewModel : BaseViewModel
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         if (!query.TryGetValue("id", out var value) || value == null) return;
-        var selectedExerciseId = Convert.ToInt32(value);
-        SelectedExercise = _exerciseService.GetExercise(selectedExerciseId);
+        var selectedVitalsId = Convert.ToInt32(value);
+        SelectedVitals = _vitalsService.GetVitals(selectedVitalsId);
         InitializeForm();
     }
 
     private void InitializeForm()
     {
-        if (SelectedExercise == null) return;
+        if (SelectedVitals == null) return;
 
-        SelectedDate = SelectedExercise.DateTime.Date;
-        SelectedTime = SelectedExercise.DateTime.TimeOfDay;
+        SelectedDate = SelectedVitals.DateTime.Date;
+        SelectedTime = SelectedVitals.DateTime.TimeOfDay;
+        Diastolic = SelectedVitals.Diastolic;
+        Systolic = SelectedVitals.Systolic;
+        HeartRate = SelectedVitals.HeartRate;
+        Weight = SelectedVitals.Weight;
         inEditMode = true;
     }
 
     [RelayCommand]
-    public async Task SaveOrEditExercise()
+    public async Task SaveOrEditVitals()
     {
         if (inEditMode)
         {
-            await UpdateExercise();
+            await UpdateVitals();
         }
         else
         {
-            await SaveExercise();
+            await SaveVitals();
         }
     }
 
 
     [RelayCommand]
-    public async Task UpdateExercise()
+    public async Task UpdateVitals()
     {
         ValidateAllProperties();
         if (HasErrors)
@@ -81,9 +94,9 @@ public partial class ExerciseInputViewModel : BaseViewModel
             SelectedDate.Year, SelectedDate.Month, SelectedDate.Day,
             SelectedTime.Hours, SelectedTime.Minutes, SelectedTime.Seconds);
 
-        SelectedExercise!.DateTime = newDateTime;
+        SelectedVitals!.DateTime = newDateTime;
 
-        _exerciseService.UpdateExercise(SelectedExercise);
+        _vitalsService.UpdateVitals(SelectedVitals);
 
         ClearForm();
         await NavigateBack();
@@ -92,7 +105,7 @@ public partial class ExerciseInputViewModel : BaseViewModel
 
 
     [RelayCommand]
-    public async Task SaveExercise()
+    public async Task SaveVitals()
     {
         ValidateAllProperties();
         if (HasErrors)
@@ -104,16 +117,17 @@ public partial class ExerciseInputViewModel : BaseViewModel
             SelectedDate.Year, SelectedDate.Month, SelectedDate.Day,
             SelectedTime.Hours, SelectedTime.Minutes, SelectedTime.Seconds);
 
-        var exercise = new Exercise()
+        var vitals = new Vitals()
         {
             DateTime = currentDateTime,
-            Duration = Duration,
-            Notes = Notes,
-            ExerciseType = SelectedExerciseType,
+            Systolic = Systolic,
+            Diastolic = Diastolic,
+            HeartRate = HeartRate,
+            Weight = Weight
         };
 
-        _exerciseService.AddExercise(exercise);
-        await Shell.Current.DisplayAlert("Info", _exerciseService.StatusMessage, "Ok");
+        _vitalsService.AddVitals(vitals);
+        await Shell.Current.DisplayAlert("Info", _vitalsService.StatusMessage, "Ok");
 
         ClearForm();
         await NavigateBack();
@@ -128,7 +142,7 @@ public partial class ExerciseInputViewModel : BaseViewModel
             inEditMode = false;
             await Shell.Current.GoToAsync("..", new Dictionary<string, object>
             {
-                {nameof(Exercise), SelectedExercise! }
+                {nameof(Vitals), SelectedVitals! }
             });
         }
         else
@@ -141,9 +155,10 @@ public partial class ExerciseInputViewModel : BaseViewModel
     {
         SelectedDate = DateTime.Today;
         SelectedTime = DateTime.Now.TimeOfDay;
-        SelectedExercise = null;
-        Notes = null;
-        Duration = TimeSpan.Zero; // TODO Null?!!
+        Systolic = null;
+        Diastolic = null;
+        HeartRate = null;
+        Weight = null;
     }
 
 }

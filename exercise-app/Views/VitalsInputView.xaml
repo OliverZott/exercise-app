@@ -6,10 +6,10 @@
              xmlns:lang="clr-namespace:exercise_app.Resources.Languages"
              xmlns:vm="clr-namespace:exercise_app.ViewModels"
 
-             x:DataType="vm:ExerciseInputViewModel"
-             x:Class="exercise_app.Views.ExerciseInputView"
+             x:DataType="vm:VitalsInputViewModel"
+             x:Class="exercise_app.Views.VitalsInputView"
              
-             Title="{x:Static lang:AppResources.view_exercise_input_title}">
+             Title="{x:Static lang:AppResources.view_vitals_input_title}">
 
     <Grid ColumnSpacing="1" RowSpacing="1" Padding="3" ColumnDefinitions="*" RowDefinitions="Auto,Auto,Auto,*">
 
@@ -45,15 +45,15 @@
             <Grid ColumnDefinitions="*, *">
                 <Label 
                     Grid.Column="0" 
-                    Text="{x:Static lang:AppResources.duration}" 
+                    Text="{x:Static lang:AppResources.systolic}" 
                     VerticalTextAlignment="Center"
                     FontSize="Medium"
                     Margin="10"/>
                 <Entry 
                     Grid.Column="1" 
-                    x:Name="duration" 
-                    Placeholder="{x:Static lang:AppResources.duration}" 
-                    Text="{Binding Duration, Mode=TwoWay}" 
+                    x:Name="Systolic" 
+                    Placeholder="{x:Static lang:AppResources.systolic}" 
+                    Text="{Binding Systolic, Mode=TwoWay}" 
                     Keyboard="Numeric"
                     FontSize="Medium"
                     Margin="10"/>
@@ -62,16 +62,16 @@
             <Grid ColumnDefinitions="*, *">
                 <Label 
                     Grid.Column="0" 
-                    Text="{x:Static lang:AppResources.notes}" 
+                    Text="{x:Static lang:AppResources.diastolic}" 
                     VerticalTextAlignment="Center"
                     FontSize="Medium"
                     Margin="10"/>
                 <Entry 
                     Grid.Column="1" 
-                    x:Name="notes" 
-                    Placeholder="{x:Static lang:AppResources.notes}" 
-                    Text="{Binding Notes, Mode=TwoWay}" 
-                    Keyboard="Text"
+                    x:Name="Diastolic" 
+                    Placeholder="{x:Static lang:AppResources.diastolic}" 
+                    Text="{Binding Diastolic, Mode=TwoWay}" 
+                    Keyboard="Numeric"
                     FontSize="Medium"
                     Margin="10"/>
             </Grid>
@@ -79,19 +79,37 @@
             <Grid ColumnDefinitions="*, *">
                 <Label 
                     Grid.Column="0" 
-                    Text="{x:Static lang:AppResources.exerciseType}" 
+                    Text="{x:Static lang:AppResources.heartrate}" 
                     VerticalTextAlignment="Center"
                     FontSize="Medium"
                     Margin="10"/>
-                <Picker 
+                <Entry 
                     Grid.Column="1" 
                     x:Name="HeartRate" 
-                    ItemsSource="{Binding ExerciseTypes}" 
-                    SelectedItem="{Binding SelectedExerciseType}" 
-                    ItemDisplayBinding="{Binding .}" 
+                    Placeholder="{x:Static lang:AppResources.heartrate}" 
+                    Text="{Binding HeartRate, Mode=TwoWay}" 
+                    Keyboard="Numeric"
                     FontSize="Medium"
                     Margin="10"/>
             </Grid>
+
+            <Grid ColumnDefinitions="*, *">
+                <Label 
+                    Grid.Column="0" 
+                    Text="{x:Static lang:AppResources.weight}" 
+                    VerticalTextAlignment="Center"
+                    FontSize="Medium"
+                    Margin="10"/>
+                <Entry 
+                    Grid.Column="1" 
+                    x:Name="Weight" 
+                    Placeholder="{x:Static lang:AppResources.weight}" 
+                    Text="{Binding Weight, Mode=TwoWay}" 
+                    Keyboard="Numeric"
+                    FontSize="Medium"
+                    Margin="10"/>
+            </Grid>
+
 
 
             <Grid ColumnSpacing="1" RowSpacing="1" Padding="3" ColumnDefinitions="*,*">

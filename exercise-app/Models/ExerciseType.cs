@@ -1,10 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿namespace exercise_app.Models;
 
-namespace exercise_app.Models;
-
-[Table("ExerciseTypes")]
-public class ExerciseType : BaseEntity
+public enum ExerciseType
 {
-    public string Name { get; set; }
-    public string Description { get; set; }
+    Mountainbike,
+    Downhill,
+    WeightLifting,
+    TrailRunning,
+    NordicSkiing,
+    AlpineSkiing,
+    SkiTouring,
+    Snowboarding,
+    Hiking,
 }

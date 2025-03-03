@@ -5,7 +5,6 @@ using exercise_app.ViewModels.Components;
 using exercise_app.Views;
 using exercise_app.Views.Components;
 using Microsoft.Extensions.Logging;
-using ListView = Microsoft.Maui.Controls.ListView;
 
 namespace exercise_app;
 
@@ -25,9 +24,11 @@ public static class MauiProgram
 
         // Database configuration
         var dbPath = Path.Combine(FileSystem.AppDataDirectory, "exercise.db3");
-        builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<DatabaseService>(s, dbPath));
+        builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<ExerciseService>(s, dbPath));
+        builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<VitalsService>(s, dbPath));
 
-        builder.Services.AddSingletonWithShellRoute<ListView, ListViewModel>(nameof(ListView));
+
+        builder.Services.AddSingletonWithShellRoute<DataListView, DataListViewModel>(nameof(DataListView));
         builder.Services.AddSingletonWithShellRoute<ExerciseTile, ExerciseTileViewModel>(nameof(ExerciseTile));
         builder.Services.AddSingletonWithShellRoute<ExerciseInputView, ExerciseInputViewModel>(nameof(ExerciseInputView));
 
