@@ -13,12 +13,11 @@
              Title="{x:Static lang:AppResources.view_list_title}">
 
     <Grid ColumnSpacing="20" RowSpacing="20" Padding="22" ColumnDefinitions="*" RowDefinitions="*, Auto, Auto">
-        <Label Text="FUCK"></Label>
         <RefreshView Grid.Row="0" Command="{Binding GetDataListCommand}" IsRefreshing="{Binding IsRefreshing}">
             <CollectionView ItemsSource="{Binding DataObjects}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:DataObject">
-                        <Label Text="{Binding DateTime}"></Label>
+                        <components:DataObjectTile />
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

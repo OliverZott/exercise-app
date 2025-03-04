@@ -29,7 +29,7 @@ public static class MauiProgram
 
 
         builder.Services.AddSingletonWithShellRoute<DataListView, DataListViewModel>(nameof(DataListView));
-        //builder.Services.AddSingletonWithShellRoute<DataDetailView, DataDetailViewModel>(nameof(DataDetailView));
+        builder.Services.AddSingletonWithShellRoute<DataDetailView, DataDetailViewModel>(nameof(DataDetailView));
         builder.Services.AddSingletonWithShellRoute<DataObjectTile, ExerciseTileViewModel>(nameof(DataObjectTile));
         builder.Services.AddSingletonWithShellRoute<ExerciseInputView, ExerciseInputViewModel>(nameof(ExerciseInputView));
         builder.Services.AddSingletonWithShellRoute<VitalsInputView, VitalsInputViewModel>(nameof(VitalsInputView));

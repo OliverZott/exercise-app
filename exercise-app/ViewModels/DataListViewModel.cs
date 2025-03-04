@@ -88,7 +88,12 @@ public partial class DataListViewModel : BaseViewModel
             }
             dataObjectDictionary[date].Vitals.Add(vitals);
         }
-        DataObjects = [.. dataObjectDictionary.Values];
+
+        DataObjects.Clear();
+        foreach (var dataObject in dataObjectDictionary.Values)
+        {
+            DataObjects.Add(dataObject);
+        }
     }
 
     [RelayCommand]

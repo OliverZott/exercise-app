@@ -2,9 +2,23 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:exercise_app.Models"
+             
+             xmlns:vm="clr-namespace:exercise_app.ViewModels"
              x:DataType="model:DataObject"
              x:Class="exercise_app.Views.Components.DataObjectTile">
+    
+    
+    <Border HeightRequest="70" Margin="2,10">
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DataListViewModel}}, Path=NavigateToDataDetailViewCommand}" 
+                               CommandParameter="{Binding .}"/>
+        </Border.GestureRecognizers>
+        <Grid Padding="20" ColumnDefinitions="*">
+            <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Label Text="{Binding DateTime, StringFormat='{0:dd/MM/yyyy}'}" FontSize="Medium" />
+            </HorizontalStackLayout>
+        </Grid>
+    </Border>
 
-   
 
 </ContentView>
