@@ -6,9 +6,19 @@ namespace exercise_app.Models;
 public class Exercise : BaseEntity
 {
     public DateTime DateTime { get; set; }
-    public TimeSpan Duration { get; set; }
-    public string? Notes { get; set; }
+
+    [NotMapped]
+    public TimeSpan Duration
+    {
+        get => TimeSpan.FromSeconds(DurationSeconds);
+        set => DurationSeconds = (int)value.TotalSeconds;
+    }
+
+    public int DurationSeconds { get; set; } // Store duration as total seconds
+
     public ExerciseType ExerciseType { get; set; }
+
+    public string? Notes { get; set; }
     public int Distance { get; set; }
     public int Elevation { get; set; }
     public int AverageHeartRate { get; set; }

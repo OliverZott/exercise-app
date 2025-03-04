@@ -49,12 +49,10 @@
                     VerticalTextAlignment="Center"
                     FontSize="Medium"
                     Margin="10"/>
-                <Entry 
+                <TimePicker 
                     Grid.Column="1" 
-                    x:Name="duration" 
-                    Placeholder="{x:Static lang:AppResources.duration}" 
-                    Text="{Binding Duration, Mode=TwoWay}" 
-                    Keyboard="Numeric"
+                    x:Name="durationPicker" 
+                    Time="{Binding Duration, Mode=TwoWay}" 
                     FontSize="Medium"
                     Margin="10"/>
             </Grid>

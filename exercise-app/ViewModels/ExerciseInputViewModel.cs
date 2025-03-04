@@ -20,7 +20,6 @@ public partial class ExerciseInputViewModel : BaseViewModel
 
     public List<ExerciseType> ExerciseTypes { get; } = Enum.GetValues<ExerciseType>().Cast<ExerciseType>().ToList();
 
-
     [ObservableProperty] Exercise selectedExercise;
 
     [ObservableProperty] public DateTime selectedDate;
@@ -28,7 +27,6 @@ public partial class ExerciseInputViewModel : BaseViewModel
     [ObservableProperty] public bool isRefreshing;
 
     private bool inEditMode = false;
-
 
     public ExerciseInputViewModel(ExerciseService exerciseService)
     {
@@ -51,6 +49,9 @@ public partial class ExerciseInputViewModel : BaseViewModel
 
         SelectedDate = SelectedExercise.DateTime.Date;
         SelectedTime = SelectedExercise.DateTime.TimeOfDay;
+        Duration = TimeSpan.FromSeconds(SelectedExercise.DurationSeconds);
+        Notes = SelectedExercise.Notes;
+        SelectedExerciseType = SelectedExercise.ExerciseType;
         inEditMode = true;
     }
 
@@ -67,7 +68,6 @@ public partial class ExerciseInputViewModel : BaseViewModel
         }
     }
 
-
     [RelayCommand]
     public async Task UpdateExercise()
     {
@@ -82,14 +82,15 @@ public partial class ExerciseInputViewModel : BaseViewModel
             SelectedTime.Hours, SelectedTime.Minutes, SelectedTime.Seconds);
 
         SelectedExercise!.DateTime = newDateTime;
+        SelectedExercise.DurationSeconds = (int)Duration.TotalSeconds;
+        SelectedExercise.Notes = Notes;
+        SelectedExercise.ExerciseType = SelectedExerciseType;
 
         _exerciseService.UpdateExercise(SelectedExercise);
 
         ClearForm();
         await NavigateBack();
     }
-
-
 
     [RelayCommand]
     public async Task SaveExercise()
@@ -107,7 +108,7 @@ public partial class ExerciseInputViewModel : BaseViewModel
         var exercise = new Exercise()
         {
             DateTime = currentDateTime,
-            Duration = Duration,
+            DurationSeconds = (int)Duration.TotalSeconds,
             Notes = Notes,
             ExerciseType = SelectedExerciseType,
         };
@@ -118,7 +119,6 @@ public partial class ExerciseInputViewModel : BaseViewModel
         ClearForm();
         await NavigateBack();
     }
-
 
     [RelayCommand]
     public async Task NavigateBack()
@@ -143,7 +143,7 @@ public partial class ExerciseInputViewModel : BaseViewModel
         SelectedTime = DateTime.Now.TimeOfDay;
         SelectedExercise = null;
         Notes = null;
-        Duration = TimeSpan.Zero; // TODO Null?!!
+        Duration = TimeSpan.Zero;
+        SelectedExerciseType = ExerciseType.Mountainbike; // Default value
     }
-
 }
