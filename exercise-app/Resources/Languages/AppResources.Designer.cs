@@ -160,6 +160,15 @@ namespace exercise_app.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trainings Details.
+        /// </summary>
+        internal static string view_detail_title {
+            get {
+                return ResourceManager.GetString("view_detail_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Training Hinzufügen.
         /// </summary>
         internal static string view_exercise_input_title {

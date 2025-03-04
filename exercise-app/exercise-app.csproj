@@ -89,6 +89,12 @@
 	  <MauiXaml Update="Views\Components\DataObjectTile.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Components\ExerciseTile.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Components\VitalsTile.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Controls\BasicButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

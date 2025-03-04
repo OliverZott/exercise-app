@@ -14,19 +14,17 @@ public partial class DataListViewModel : BaseViewModel
 
     [ObservableProperty] public bool isRefreshing;
 
-    public ObservableCollection<Exercise> ExerciseList { get; private set; } = [];
+    public ObservableCollection<Exercise> ExerciseList { get; private set; } = new ObservableCollection<Exercise>();
 
-    public ObservableCollection<Vitals> VitalsList { get; private set; } = [];
+    public ObservableCollection<Vitals> VitalsList { get; private set; } = new ObservableCollection<Vitals>();
 
-    public ObservableCollection<DataObject> DataObjects { get; private set; } = [];
-
+    public ObservableCollection<DataObject> DataObjects { get; private set; } = new ObservableCollection<DataObject>();
 
     public DataListViewModel(ExerciseService exerciseService, VitalsService vitalsService)
     {
         _exerciseService = exerciseService;
         _vitalsService = vitalsService;
     }
-
 
     [RelayCommand]
     public async Task GetDataList()
@@ -41,7 +39,7 @@ public partial class DataListViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert($"Error", "Failed to retrieve data", "Ok");  // could abstract that away and user via DI
+            await Shell.Current.DisplayAlert("Error", "Failed to retrieve data", "Ok");
         }
         finally
         {
@@ -109,9 +107,15 @@ public partial class DataListViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public async Task NavigateToDataDetailView()
+    public async Task NavigateToDataDetailView(DataObject dataObject)
     {
-        await Shell.Current.GoToAsync(nameof(DataDetailView));
-    }
+        if (dataObject == null) return;
 
+        var navigationParameter = new Dictionary<string, object>
+        {
+            { "DataObject", dataObject }
+        };
+
+        await Shell.Current.GoToAsync(nameof(DataDetailView), navigationParameter);
+    }
 }

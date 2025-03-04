@@ -9,4 +9,8 @@ public class Exercise : BaseEntity
     public TimeSpan Duration { get; set; }
     public string? Notes { get; set; }
     public ExerciseType ExerciseType { get; set; }
+    public int Distance { get; set; }
+    public int Elevation { get; set; }
+    public int AverageHeartRate { get; set; }
+    public int MaxHeartRate { get; set; }
 }

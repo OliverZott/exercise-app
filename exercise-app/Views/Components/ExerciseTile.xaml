@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:exercise_app.Models"
+             x:DataType="model:Exercise"
+             x:Class="exercise_app.Views.Components.ExerciseTile">
+
+    <Border Padding="15" Margin="0,10,0,10" Stroke="LightGray">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="5" />
+        </Border.StrokeShape>
+        <StackLayout>
+            <Label Text="{Binding ExerciseType}" FontSize="Medium" />
+            <Label Text="{Binding DateTime, StringFormat='Time: {0:HH:mm}'}" FontSize="Small" />
+            <Label Text="{Binding Duration, StringFormat='Duration: {0:%h}h {0:%m}m'}" FontSize="Small" />
+            <Label Text="{Binding Notes, StringFormat='Notes: {0}'}" FontSize="Small" />
+        </StackLayout>
+    </Border>
+</ContentView>

@@ -150,6 +150,9 @@
   <data name="time" xml:space="preserve">
     <value>Time</value>
   </data>
+  <data name="view_detail_title" xml:space="preserve">
+    <value>Training Details</value>
+  </data>
   <data name="view_exercise_input_title" xml:space="preserve">
     <value>Add Exercise</value>
   </data>

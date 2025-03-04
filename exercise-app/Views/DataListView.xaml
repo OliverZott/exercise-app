@@ -16,23 +16,19 @@
         <RefreshView Grid.Row="0" Command="{Binding GetDataListCommand}" IsRefreshing="{Binding IsRefreshing}">
             <CollectionView ItemsSource="{Binding DataObjects}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
+                    
                     <DataTemplate x:DataType="model:DataObject">
                         <components:DataObjectTile />
                     </DataTemplate>
+                    
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </RefreshView>
 
-        <VerticalStackLayout Grid.Row="1" Margin="5" Padding="3">
-            <Grid ColumnSpacing="1" RowSpacing="1" Padding="3" ColumnDefinitions="*">
-                <controls:BasicButton Text="{x:Static lang:AppResources.view_exercise_input_title}" Grid.Column="0" Command="{Binding NavigateToExerciseInputViewCommand}" IsEnabled="{Binding IsNotBusy}"/>
-            </Grid>
-        </VerticalStackLayout>
-        <VerticalStackLayout Grid.Row="2" Margin="5" Padding="3">
-            <Grid ColumnSpacing="1" RowSpacing="1" Padding="3" ColumnDefinitions="*">
-                <controls:BasicButton Text="{x:Static lang:AppResources.view_vitals_input_title}" Grid.Column="0" Command="{Binding NavigateToVitalsInputViewCommand}" IsEnabled="{Binding IsNotBusy}"/>
-            </Grid>
-        </VerticalStackLayout>
+        <Grid Grid.Row="1" ColumnDefinitions="*, *">
+            <controls:BasicButton Grid.Row="1" Grid.Column="0" Text="{x:Static lang:AppResources.view_exercise_input_title}" Command="{Binding NavigateToExerciseInputViewCommand}" IsEnabled="{Binding IsNotBusy}"/>
+            <controls:BasicButton Grid.Row="1" Grid.Column="1" Text="{x:Static lang:AppResources.view_vitals_input_title}"  Command="{Binding NavigateToVitalsInputViewCommand}" IsEnabled="{Binding IsNotBusy}"/>
+        </Grid>
 
     </Grid>
 

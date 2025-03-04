@@ -18,8 +18,23 @@
         <toolkit:StatusBarBehavior StatusBarColor="{StaticResource my-base-color-blue2}" StatusBarStyle="LightContent" />
     </Shell.Behaviors>
 
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Shell">
+                <Setter Property="TabBarTitleColor" Value="White" />
+                <!--<Setter Property="ForegroundColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="{StaticResource my-base-color-blue2}" />
+                <Setter Property="TitleColor" Value="White" />
+                <Setter Property="DisabledColor" Value="Gray" />
+                <Setter Property="UnselectedColor" Value="White" />
+                <Setter Property="TabBarBackgroundColor" Value="{StaticResource my-base-color-blue2}" />
+                <Setter Property="TabBarForegroundColor" Value="White" />
+                <Setter Property="TabBarUnselectedColor" Value="White" />-->
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
 
-<ShellContent
+    <ShellContent
         Title="{x:Static lang:AppResources.view_list_title}"
         ContentTemplate="{DataTemplate views:DataListView}"
         Route="MainPage" />
