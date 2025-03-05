@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="exercise_app.Views.Components.TimeSpanPicker">
+    
+    <StackLayout>
+        <!--<Label Text="Select Timespan:" />-->
+        <StackLayout Orientation="Horizontal">
+            <Picker x:Name="HoursPicker" Title="Hours" FontSize="Medium" />
+            <Picker x:Name="MinutesPicker" Title="Minutes" FontSize="Medium"/>
+        </StackLayout>
+        
+    </StackLayout>
+
+</ContentView>

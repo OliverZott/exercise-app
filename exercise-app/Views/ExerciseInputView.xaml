@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 
              xmlns:controls="clr-namespace:exercise_app.Views.Controls"
+             xmlns:components="clr-namespace:exercise_app.Views.Components"
              xmlns:lang="clr-namespace:exercise_app.Resources.Languages"
              xmlns:vm="clr-namespace:exercise_app.ViewModels"
 
@@ -49,11 +50,9 @@
                     VerticalTextAlignment="Center"
                     FontSize="Medium"
                     Margin="10"/>
-                <TimePicker 
+                <components:TimeSpanPicker 
+                    SelectedTimeSpan="{Binding Duration, Mode=TwoWay}"
                     Grid.Column="1" 
-                    x:Name="durationPicker" 
-                    Time="{Binding Duration, Mode=TwoWay}" 
-                    FontSize="Medium"
                     Margin="10"/>
             </Grid>
 
