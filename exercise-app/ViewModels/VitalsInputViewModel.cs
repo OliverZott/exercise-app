@@ -42,8 +42,6 @@ public partial class VitalsInputViewModel : BaseViewModel
     public VitalsInputViewModel(VitalsService vitalsService)
     {
         _vitalsService = vitalsService;
-        SelectedDate = DateTime.Today;
-        SelectedTime = DateTime.Now.TimeOfDay;
     }
 
     public void ApplyQueryAttributes(IDictionary<string, object> query)

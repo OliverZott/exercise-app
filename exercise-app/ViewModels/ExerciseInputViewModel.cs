@@ -31,8 +31,6 @@ public partial class ExerciseInputViewModel : BaseViewModel
     public ExerciseInputViewModel(ExerciseService exerciseService)
     {
         _exerciseService = exerciseService;
-        SelectedDate = DateTime.Today;
-        SelectedTime = DateTime.Now.TimeOfDay;
     }
 
     public void ApplyQueryAttributes(IDictionary<string, object> query)
