@@ -1,6 +1,11 @@
 ﻿namespace exercise_app.ViewModels.Components;
 
-public partial class ExerciseTileViewModel : BaseViewModel
+public partial class VitalsTileViewModel : BaseViewModel
 {
+
+    public VitalsTileViewModel()
+    {
+
+    }
 
 }

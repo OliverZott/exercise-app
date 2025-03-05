@@ -33,6 +33,8 @@ public static class MauiProgram
         builder.Services.AddSingletonWithShellRoute<DataObjectTile, ExerciseTileViewModel>(nameof(DataObjectTile));
         builder.Services.AddSingletonWithShellRoute<ExerciseInputView, ExerciseInputViewModel>(nameof(ExerciseInputView));
         builder.Services.AddSingletonWithShellRoute<VitalsInputView, VitalsInputViewModel>(nameof(VitalsInputView));
+        builder.Services.AddSingletonWithShellRoute<ExerciseTile, ExerciseTileViewModel>(nameof(ExerciseTile));
+        builder.Services.AddSingletonWithShellRoute<VitalsTile, VitalsTileViewModel>(nameof(VitalsTile));
 
 #if DEBUG
         builder.Logging.AddDebug();

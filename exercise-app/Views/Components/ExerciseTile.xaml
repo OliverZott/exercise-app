@@ -2,28 +2,53 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              
+             xmlns:vmcomp="clr-namespace:exercise_app.ViewModels.Components"
              xmlns:model="clr-namespace:exercise_app.Models"
              xmlns:utils="clr-namespace:exercise_app.Utils"
              x:DataType="model:Exercise"
              
              x:Class="exercise_app.Views.Components.ExerciseTile">
 
-
     <ContentView.Resources>
         <utils:ExerciseTypeDisplayConverter x:Key="ExerciseTypeDisplayConverter" />
     </ContentView.Resources>
 
+    
+    <Grid ColumnDefinitions="*,Auto,Auto">
 
+        <Border Grid.Column="0" Padding="15" Margin="0,10,0,10" Stroke="LightGray">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5" />
+            </Border.StrokeShape>
 
-    <Border Padding="15" Margin="0,10,0,10" Stroke="LightGray">
-        <Border.StrokeShape>
-            <RoundRectangle CornerRadius="5" />
-        </Border.StrokeShape>
-        <StackLayout>
-            <Label Text="{Binding ExerciseType, Converter={StaticResource ExerciseTypeDisplayConverter}}" FontSize="Medium" />
-            <Label Text="{Binding DateTime, StringFormat='Time: {0:HH:mm}'}" FontSize="Small" />
-            <Label Text="{Binding Duration, StringFormat='Duration: {0:%h}h {0:%m}m'}" FontSize="Small" />
-            <Label Text="{Binding Notes, StringFormat='Notes: {0}'}" FontSize="Small" />
-        </StackLayout>
-    </Border>
+            <StackLayout>
+                <Label Text="{Binding ExerciseType, Converter={StaticResource ExerciseTypeDisplayConverter}}" FontSize="Medium" />
+                <Label Text="{Binding DateTime, StringFormat='Time: {0:HH:mm}'}" FontSize="Small" />
+                <Label Text="{Binding Duration, StringFormat='Duration: {0:%h}h {0:%m}m'}" FontSize="Small" />
+                <Label Text="{Binding Notes, StringFormat='Notes: {0}'}" FontSize="Small" />
+            </StackLayout>
+        </Border>
+
+        <ImageButton 
+        Grid.Column="1" 
+        Source="settings_icon.png" 
+        Command="{Binding Source={RelativeSource AncestorType={x:Type vmcomp:ExerciseTileViewModel}}, Path=EditExercise}"
+            Command="{Binding BindingContext.EditExercise, Source={x:Reference Name=ParentView}}"
+
+        Margin="5,0" 
+        HeightRequest="25" 
+        WidthRequest="25"
+        BackgroundColor="Transparent" />
+
+        <!-- Trash icon (delete) -->
+        <ImageButton 
+        Grid.Column="2" 
+        Source="delete_icon.png" 
+        Command="{Binding Source={RelativeSource AncestorType={x:Type vmcomp:ExerciseTileViewModel}}, Path=DeleteExercise}" 
+        Margin="5,0" 
+        HeightRequest="25" 
+        WidthRequest="25" 
+        BackgroundColor="Transparent" />
+
+    </Grid>
 </ContentView>

@@ -11,22 +11,18 @@ public partial class VitalsInputViewModel : BaseViewModel
     private readonly VitalsService _vitalsService;
 
     [ObservableProperty]
-    [Required(ErrorMessage = "Systolic value is required")]
     [Range(50, 250, ErrorMessage = "Systolic value must be between 50 and 250")]
     public int? systolic;
 
     [ObservableProperty]
-    [Required(ErrorMessage = "Diastolic value is required")]
     [Range(50, 150, ErrorMessage = "Diastolic value must be between 50 and 150")]
     public int? diastolic;
 
     [ObservableProperty]
-    [Required(ErrorMessage = "Heart rate value is required")]
     [Range(30, 230, ErrorMessage = "Heart rate must be between 30 and 230")]
     public int? heartRate;
 
     [ObservableProperty]
-    [Required(ErrorMessage = "Weight rate value is required")]
     [Range(50, 150, ErrorMessage = "Weight rate must be between 50 and 150")]
     public double? weight;
 

@@ -22,18 +22,22 @@
         <Label Text="{x:Static lang:AppResources.exercises}" FontSize="Large" FontFamily="Bold" Margin="0,10,0,0" />
         <CollectionView ItemsSource="{Binding DataObject.Exercises}" SelectionMode="None">
             <CollectionView.ItemTemplate>
+                
                 <DataTemplate x:DataType="model:Exercise">
                     <components:ExerciseTile />
                 </DataTemplate>
+                
             </CollectionView.ItemTemplate>
         </CollectionView>
 
         <Label Text="{x:Static lang:AppResources.vitals}" FontSize="Large" FontFamily="Bold" Margin="0,10,0,0" />
         <CollectionView ItemsSource="{Binding DataObject.Vitals}" SelectionMode="None">
             <CollectionView.ItemTemplate>
+                
                 <DataTemplate x:DataType="model:Vitals">
                     <components:VitalsTile />
                 </DataTemplate>
+                
             </CollectionView.ItemTemplate>
         </CollectionView>
         
