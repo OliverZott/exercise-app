@@ -144,6 +144,12 @@
   <data name="heartrate" xml:space="preserve">
     <value>Heart Rate</value>
   </data>
+  <data name="hours" xml:space="preserve">
+    <value>Hours</value>
+  </data>
+  <data name="minutes" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
   <data name="notes" xml:space="preserve">
     <value>Notes</value>
   </data>

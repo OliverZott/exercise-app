@@ -142,6 +142,24 @@ namespace exercise_app.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stunden.
+        /// </summary>
+        internal static string hours {
+            get {
+                return ResourceManager.GetString("hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minuten.
+        /// </summary>
+        internal static string minutes {
+            get {
+                return ResourceManager.GetString("minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Notizen.
         /// </summary>
         internal static string notes {

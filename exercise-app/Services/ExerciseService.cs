@@ -6,7 +6,7 @@ namespace exercise_app.Services;
 public class ExerciseService
 {
     private SQLiteConnection connection;
-    private string dbPath;
+    private readonly string dbPath;
 
     public string StatusMessage { get; set; }
 
