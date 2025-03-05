@@ -28,7 +28,7 @@ public partial class VitalsInputViewModel : BaseViewModel
     [ObservableProperty]
     [Required(ErrorMessage = "Weight rate value is required")]
     [Range(50, 150, ErrorMessage = "Weight rate must be between 50 and 150")]
-    public int? weight;
+    public double? weight;
 
     [ObservableProperty] public DateTime selectedDate;
     [ObservableProperty] public TimeSpan selectedTime;
