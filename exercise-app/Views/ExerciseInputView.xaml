@@ -4,6 +4,7 @@
 
              xmlns:controls="clr-namespace:exercise_app.Views.Controls"
              xmlns:components="clr-namespace:exercise_app.Views.Components"
+             xmlns:utils="clr-namespace:exercise_app.Utils"
              xmlns:lang="clr-namespace:exercise_app.Resources.Languages"
              xmlns:vm="clr-namespace:exercise_app.ViewModels"
 
@@ -11,6 +12,12 @@
              x:Class="exercise_app.Views.ExerciseInputView"
              
              Title="{x:Static lang:AppResources.view_exercise_input_title}">
+
+
+
+    <ContentPage.Resources>
+        <utils:ExerciseTypeDisplayConverter x:Key="ExerciseTypeDisplayConverter" />
+    </ContentPage.Resources>
 
     <Grid ColumnSpacing="1" RowSpacing="1" Padding="3" ColumnDefinitions="*" RowDefinitions="Auto,Auto,Auto,*">
 
@@ -83,7 +90,7 @@
                 <Picker 
                     Grid.Column="1" 
                     x:Name="HeartRate" 
-                    ItemsSource="{Binding ExerciseTypes}" 
+                    ItemsSource="{Binding ExerciseTypes, Converter={StaticResource ExerciseTypeDisplayConverter}}" 
                     SelectedItem="{Binding SelectedExerciseType}" 
                     ItemDisplayBinding="{Binding .}" 
                     FontSize="Medium"
