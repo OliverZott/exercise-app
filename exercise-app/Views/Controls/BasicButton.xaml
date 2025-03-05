@@ -4,15 +4,16 @@
         x:Class="exercise_app.Views.Controls.BasicButton"
         
         Margin="6" 
-        TextColor="White"
+        TextColor="{AppThemeBinding Light='White', Dark='White'}"
         BackgroundColor="{StaticResource my-base-color-blue2}" 
         BorderColor="{StaticResource my-base-color-blue2}">
 
     <Button.TextColor>
         <OnPlatform x:TypeArguments="Color">
             <On Platform="iOS" Value="White" />
-            <!--<On Platform="Android" Value="White"/>-->
+            <On Platform="Android" Value="White"/>
         </OnPlatform>
     </Button.TextColor>
+
 
 </Button>
