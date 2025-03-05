@@ -2,22 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="exercise_app.Views.DataDetailView"
+             
              xmlns:vm="clr-namespace:exercise_app.ViewModels"
              xmlns:model="clr-namespace:exercise_app.Models"
              xmlns:components="clr-namespace:exercise_app.Views.Components"
              xmlns:lang="clr-namespace:exercise_app.Resources.Languages"
              x:DataType="vm:DataDetailViewModel"
+             
              Title="{x:Static lang:AppResources.view_detail_title}">
 
     <StackLayout Margin="20">
 
         <Label 
-            Text="{Binding DataObject.DateTime, StringFormat='Training on {0:dd/MM/yyyy}'}" 
+            Text="{Binding DataObject.DateTime, StringFormat='{0:dd/MM/yyyy}'}" 
             FontSize="Large" 
             FontFamily="Bold" 
             Margin="0,0,0,20"/>
 
-        <Label Text="Exercises" FontSize="Large" FontFamily="Bold" Margin="0,10,0,0" />
+        <Label Text="{x:Static lang:AppResources.exercises}" FontSize="Large" FontFamily="Bold" Margin="0,10,0,0" />
         <CollectionView ItemsSource="{Binding DataObject.Exercises}" SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Exercise">
@@ -26,7 +28,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Label Text="Vitals" FontSize="Large" FontFamily="Bold" Margin="0,10,0,0" />
+        <Label Text="{x:Static lang:AppResources.vitals}" FontSize="Large" FontFamily="Bold" Margin="0,10,0,0" />
         <CollectionView ItemsSource="{Binding DataObject.Vitals}" SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Vitals">

@@ -135,6 +135,9 @@
   <data name="duration" xml:space="preserve">
     <value>Trainigsdauer</value>
   </data>
+  <data name="exercises" xml:space="preserve">
+    <value>Aktivitäten</value>
+  </data>
   <data name="exerciseType" xml:space="preserve">
     <value>Sportart</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="view_vitals_input_title" xml:space="preserve">
     <value>Vitalwerte hinzufügen</value>
+  </data>
+  <data name="vitals" xml:space="preserve">
+    <value>Vital Werte</value>
   </data>
   <data name="weight" xml:space="preserve">
     <value>Gewicht</value>

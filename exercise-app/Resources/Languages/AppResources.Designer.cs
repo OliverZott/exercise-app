@@ -115,6 +115,15 @@ namespace exercise_app.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aktivitäten.
+        /// </summary>
+        internal static string exercises {
+            get {
+                return ResourceManager.GetString("exercises", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sportart.
         /// </summary>
         internal static string exerciseType {
@@ -201,6 +210,15 @@ namespace exercise_app.Resources.Languages {
         internal static string view_vitals_input_title {
             get {
                 return ResourceManager.GetString("view_vitals_input_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vital Werte.
+        /// </summary>
+        internal static string vitals {
+            get {
+                return ResourceManager.GetString("vitals", resourceCulture);
             }
         }
         

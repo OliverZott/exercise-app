@@ -10,7 +10,7 @@
         <Label Text="{Binding Systolic, StringFormat='Systolic: {0:N0} mmHg'}" FontSize="Small" />
         <Label Text="{Binding Diastolic, StringFormat='Diastolic: {0:N0} mmHg'}" FontSize="Small" />
         <Label Text="{Binding HeartRate, StringFormat='Heartrate: {0:N0} bpm'}" FontSize="Small" />
-        <Label Text="{Binding Weight, StringFormat='Weight: {0:N0} mmHg'}" FontSize="Small" />
+        <Label Text="{Binding Weight, StringFormat='Weight: {0:N0} kg'}" FontSize="Small" />
     </StackLayout>
     
 </ContentView>
